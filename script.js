@@ -11,7 +11,7 @@ function Contact(first, last) {
 
   $(document).ready(function(){
       $("form#new-cont").submit(function(event){
-        event.precentDefault();
+        event.preventDefault();
 
           var inputFirstName = $("input#firstName").val();
           var inputLastName = $("input#lastName").val();
@@ -21,8 +21,8 @@ function Contact(first, last) {
           $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span><?li>");
 
 
-          $("input#firstName").val("");
-          $("input#lastName") .val("");
+          $("input#firstName").val();
+          $("input#lastName") .val();
       });
       
   });
@@ -35,12 +35,3 @@ function Contact(first, last) {
   }); 
   
   // business logic
-function Contact(first, last) {
-    this.firstName = first;
-    this.lastName = last;
-  }
-  
-  Contact.prototype.fullName = function() {
-    return this.firstName + " " + this.lastName;
-  }
-  
