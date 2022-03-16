@@ -10,14 +10,19 @@ function Contact(first, last) {
 }
 
   $(document).ready(function(){
-      $("form#new-cont").submit(function(){
+      $("form#new-cont").submit(function(event){
+        event.preventDefault();
+
           var inputFirstName = $("input#firstName").val();
           var inputLastName = $("input#lastName").val();
           
-          var newContact =new Contact(inputFirstName,inputLastName)
+          var newContact =new Contact(inputFirstName,inputLastName);
 
-          $("input#firstName").val("");
-          $("input#lastName") .val("");
+          $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span><?li>");
+
+
+          $("input#firstName").val();
+          $("input#lastName") .val();
       });
       
   });
@@ -30,12 +35,3 @@ function Contact(first, last) {
   }); 
   
   // business logic
-function Contact(first, last) {
-    this.firstName = first;
-    this.lastName = last;
-  }
-  
-  Contact.prototype.fullName = function() {
-    return this.firstName + " " + this.lastName;
-  }
-  
