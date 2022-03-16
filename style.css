@@ -1,5 +1,5 @@
 form{
-    border: 1px solid black;
+    
     width: 700px;
     padding: 40px;
     height: 400px;
@@ -10,4 +10,5 @@ form{
 }
 .contact:hover {
     text-decoration: underline;
+    cursor: pointer;
   }  
