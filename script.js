@@ -1,7 +1,8 @@
 
-function Contact(first, last) {
+function Contact(first, last , emailAddress) {
     this.firstName = first;
     this.lastName = last;
+    this.email = emailAddress;
   }
 
 
@@ -15,20 +16,22 @@ function Contact(first, last) {
 
           var inputFirstName = $("input#firstName").val();
           var inputLastName = $("input#lastName").val();
-          
-          var newContact =new Contact(inputFirstName,inputLastName);
+          var inputEmail = $("input#email").val();
+          var newContact =new Contact(inputFirstName,inputLastName,inputEmail);
 
           $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span><?li>");
 
 
           $("input#firstName").val();
           $("input#lastName") .val();
+          $("input#email").val();
 
           $(".contact").last().click(function() {
             $("#show-contact").show();
             $("#show-contact h2").text(newContact.firstName);
             $(".first-name").text(newContact.firstName);
             $(".last-name").text(newContact.lastName);
+            $(".email-input").text(newContact.email);
           }); 
       });
       
